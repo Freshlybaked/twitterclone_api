@@ -12,6 +12,8 @@ defmodule TwitterCloneApiWeb.Router do
     get "/tweets/ordered", TweetController, :listbyretweets
     resources "/tweets", TweetController, except: [:new, :edit]
     put "/retweet/:id", TweetController, :retweet
-    options "retweet/:id", TweetController, :options
+    
+    options "/retweet/:id", TweetController, :options
+    options "/tweets", TweetController, :options
   end
 end
