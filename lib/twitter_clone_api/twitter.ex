@@ -20,6 +20,13 @@ defmodule TwitterCloneApi.Twitter do
   def list_tweets do
     Repo.all(Tweet)
   end
+  
+  def list_tweets_by_retweets do
+    query = from tweet in Tweet,
+            order_by: [desc: :retweets],
+            limit: 10
+    Repo.all(query)
+  end
 
   @doc """
   Gets a single tweet.

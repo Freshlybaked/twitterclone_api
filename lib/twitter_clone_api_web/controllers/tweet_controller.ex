@@ -48,4 +48,9 @@ defmodule TwitterCloneApiWeb.TweetController do
       render(conn, "show.json", tweet: tweet)
     end
   end
+  
+  def listbyretweets(conn, _params) do
+    tweets = Twitter.list_tweets_by_retweets()
+    render(conn, "index.json", tweets: tweets)
+  end
 end
