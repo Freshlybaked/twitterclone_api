@@ -9,5 +9,6 @@ defmodule TwitterCloneApiWeb.Router do
     pipe_through :api
     
     resources "/tweets", TweetController, except: [:new, :edit]
+    put "/retweet/:id", TweetController, :retweet
   end
 end

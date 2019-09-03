@@ -40,4 +40,12 @@ defmodule TwitterCloneApiWeb.TweetController do
       send_resp(conn, :no_content, "")
     end
   end
+  
+  def retweet(conn, %{"id" => id}) do
+    tweet = Twitter.get_tweet!(id)
+    updated_tweet_params = %{"retweets": tweet.retweets + 1}
+    with {:ok, %Tweet{} = tweet} <- Twitter.update_tweet(tweet, updated_tweet_params) do
+      render(conn, "show.json", tweet: tweet)
+    end
+  end
 end
