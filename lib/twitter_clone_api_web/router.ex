@@ -2,7 +2,7 @@ defmodule TwitterCloneApiWeb.Router do
   use TwitterCloneApiWeb, :router
 
   pipeline :api do
-    plug CORSPlug, origin: "http://localhost:3000"
+    plug CORSPlug, origin: ["http://localhost:3000", "http://tweet.samulettitan.com"]
     plug :accepts, ["json"]
   end
 
