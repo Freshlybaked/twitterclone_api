@@ -32,15 +32,15 @@ hooks:
 # During the AfterInstall deployment lifecycle event, run the commands 
 #   in the script specified in "location".
   AfterInstall:
-    - location: scripts/InstallDependenciesCompile.sh
+    - location: InstallDependenciesCompile.sh
       timeout: 
       runas: ubuntu
-    - location: scripts/EctoInstallMigrate.sh
+    - location: EctoInstallMigrate.sh
       timeout:
       runas: ubuntu
 # During the ApplicationStart deployment lifecycle event, run the commands 
 #   in the script specified in "location".
   ApplicationStart:
-    - location: scripts/StartServer.sh
+    - location: StartServer.sh
       timeout: 
       runas: ubuntu
