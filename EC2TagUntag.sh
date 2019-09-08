@@ -1,4 +1,3 @@
 #!/bin/bash
-RESOURCE_ID=$(aws ec2 describe-instances --filters Name=tag:green,Values=true Name=tag:twitterclone_api,Values=true --query Reservations[*].Instances[*].InstanceId | jq -r '.[] | .[0]')
-aws ec2 create-tags --resources $RESOURCE_ID --tags Key=blue,Value=true
-aws ec2 delete-tags --resources $RESOURCE_ID --tags Key=blue,Value=true
+RESOURCE_ID=$(aws ec2 describe-instances --region ap-southeast-1 --filters Name=tag:deploy_group,Values=green Name=tag:twitterclone_api,Values=true --query Reservations[*].Instances[*].InstanceId | jq -r '.[] | .[0]')
+aws ec2 create-tags --resources $RESOURCE_ID --tags Key=deploy_group,Value=blue
