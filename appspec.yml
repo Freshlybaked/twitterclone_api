@@ -44,3 +44,7 @@ hooks:
     - location: StartServer.sh
       timeout: 
       runas: ubuntu
+  AfterAllowTraffic:
+    - location: EC2TagUntag.sh
+      timeout: 
+      runas: ubuntu
